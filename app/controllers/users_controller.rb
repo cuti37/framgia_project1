@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: :show
-  before_action :load_user, only: :show
+  before_action :load_user, only: [:show, :following, :followers]
+
+  def index
+    @users = User.select(:id, :name, :email).activated.order(:id)
+      .paginate page: params[:page], per_page: Settings.user.user_per_page
+  end
 
   def new
     @user = User.new
@@ -24,6 +28,20 @@ class UsersController < ApplicationController
     end
     @posts = @user.posts.paginate page: params[:page],
       per_page: Settings.micropost.micropost_per_page
+  end
+
+  def following
+    @title = "Following"
+    @users = @user.following.paginate page: params[:page],
+      per_page: Settings.micropost.micropost_per_page
+    render "show_follow"
+  end
+
+  def followers
+    @title = "Followers"
+    @users = @user.followers.paginate page: params[:page],
+      per_page: Settings.micropost.micropost_per_page
+    render "show_follow"
   end
 
   private

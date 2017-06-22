@@ -10,13 +10,14 @@
     <section class="stats">
          <%= render "shared/stats" %>
     </section>
-    <% if logged_in? %>
+    <% if logged_in? and current_user.is_current_user? @user %>
       <section class="micropost_form">
         <%= render "shared/post_form" %>
-    </section>
+      </section>
     <% end %>
   </aside>
   <div class="col-md-8">
+  <%= render "follow_form" if logged_in? %>
     <% if @user.posts.any? %>
       <h3><%= t ".microposts" %> (<%= @user.posts.size %>)</h3>
       <ol class="microposts">
