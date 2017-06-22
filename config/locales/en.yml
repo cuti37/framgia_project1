@@ -64,7 +64,7 @@ en:
       create:
         welcome: "Welcome to the Sample App"
         error: "Can not save user"
-        check_email: "Please check your email to activate your account"
+        check_email: "Signup success"
       show:
         not_found: "Not found!"
         microposts: "Microposts"
