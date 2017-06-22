@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   get "sessions/new"
   delete "/logout", to: "sessions#destroy"
 
-  resources :users
-  resources :posts
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :users only: [:show, :new, :create]
+  resources :posts only: [:new, :create, :destroy]
 end

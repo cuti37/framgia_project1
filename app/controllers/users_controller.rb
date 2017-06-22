@@ -19,6 +19,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    if logged_in?
+      @post = current_user.posts.build
+    end
     @posts = @user.posts.paginate page: params[:page],
       per_page: Settings.micropost.micropost_per_page
   end
