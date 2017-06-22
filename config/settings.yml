@@ -20,7 +20,8 @@ seed:
   total_users: 99
   total_microposts: 50
 micropost:
-  max_length: 140
+  max_length_title: 255
+  max_length_body: 10000
   size_gravatar: 50
   micropost_per_page: 5
   link_book_home: "http://www.railstutorial.org/"

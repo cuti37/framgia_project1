@@ -10,6 +10,7 @@ en:
         login: "Log in"
         account: "Account"
         setting: "Setting"
+        users: "Users"
       footer:
         the: "The"
         by: "by"
@@ -89,8 +90,8 @@ en:
       error_messages:
         the_form: "The form contains"
         errors: "errors"
-      micropost_form:
-        compose_new_micropst: "Compose new micropost..."
+      post_form:
+        compose_new_micropst: "Compose new post..."
     sessions:
       new:
         login: "Log in"
@@ -142,14 +143,14 @@ en:
     micropost:
       posted: "Posted"
       ago: " ago."
-    microposts:
+    posts:
       create:
-        success_create_micropost: "Micropost created"
+        success_create_micropost: "Post created"
       home:
-        microposts_feed: "Micropost Feed"
-      micropost:
+        microposts_feed: "Post Feed"
+      post:
         delete: "delete"
         you_sure: "You sure?"
       destroy:
-        micropost_delete: "Micropost deleted"
+        micropost_delete: "Post deleted"
         failed_delete: "Delete micropost failed"
