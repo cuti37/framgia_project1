@@ -1,33 +1,155 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+    layouts:
+      application:
+        app: "Ruby on Rails Tutorial Sample App"
+        please_log_in: "Please log in"
+      header:
+        sample: "sample app"
+        home: "Home"
+        help: "Help"
+        login: "Log in"
+        account: "Account"
+        setting: "Setting"
+      footer:
+        the: "The"
+        by: "by"
+        about: "About"
+        contact: "Contact"
+        news: "News"
+        rails: "Ruby on Rails Tutorial"
+        mychael: "Michael Hartl"
+    static_pages:
+      about:
+        about: "About"
+        the: "The"
+        rails: "Ruby on Rails Tutorial"
+        is_a: "is a"
+        book: "book"
+        and: "and"
+        screencast: "screencast series"
+        to_teach: "to teach web development with"
+        this_is: "This is the sample application for the tutorial."
+        welcome: "Welcome to the Sample App"
+      contact:
+        contact: "Contact"
+        contact_the_ruby: "Contact the Ruby on Rails Tutorial about the sample app at the"
+        contact_page: "contact page"
+      help:
+        rails: "Ruby on Rails Tutorial Sample App"
+        help: "Help"
+        get_help: "Get help on the Ruby on Rails Tutorial at the"
+        rails_help: "Rails Tutorial help section"
+        to_get: "To get help on this sample app, see the"
+        ruby_tutorial: "Ruby on Rails Tutorial"
+        book: " book"
+      home:
+        new: "News"
+        signup: "Sign Up now!"
+        rails: "Ruby on Rails Tutorial"
+        welcome: "Welcome to the Sample App"
+        this_is: "This is the home page for the"
+        sample_app: "sample application."
+        rails_logo: "Rails logo"
+    users:
+      new:
+        sign_up: "Sign Up"
+        this_is: "This will be a sign up page for new users."
+        sign_up_now: "Sign up now!"
+        create_account: "Create my account"
+        confirm: "Confirmation"
+        name: "name"
+        email: "email"
+        password: "password"
+        password_confirm: "password confirm"
+      create:
+        welcome: "Welcome to the Sample App"
+        error: "Can not save user"
+        check_email: "Please check your email to activate your account"
+      show:
+        not_found: "Not found!"
+        microposts: "Microposts"
+      edit:
+        log_in_please: "Please, log in"
+        sign_up: "Sign Up"
+        update_user: "Update user"
+      update:
+        update_success: "Update success"
+        update_error: "Update error"
+      destroy:
+        delete_success: "Delete success"
+      user:
+        delete: "Delete"
+        you_sure: "Delete user, you sure?"
+      index:
+        all_users: "All users"
+        log_in_please: "Log in,please"
+      form:
+        submit: "Create my account"
+    shared:
+      error_messages:
+        the_form: "The form contains"
+        errors: "errors"
+      micropost_form:
+        compose_new_micropst: "Compose new micropost..."
+    sessions:
+      new:
+        login: "Log in"
+        new_user: "New user?"
+        signup_now: "Sign up now!"
+        remember: "Remember me on this computer"
+        forgot_password: "(forgot password)"
+      create:
+        error_login: "Invalid email/password combination"
+        success_login: "Welcome to sample App"
+        message_not_actived: "Account not activated. Check your email
+        for the activation link."
+    account_activations:
+      edit:
+        activated_success: "Active success"
+        account_activation: "Account activation"
+    user_mailer:
+      account_activation:
+        tile_account_activation: "Sample App"
+        hi: "Hi"
+        welcome_account_activation: "Welcome to the Sample App,
+        Click on the link below to activate your account:"
+      password_reset:
+        title_password_reset: "Password reset"
+        to_reset_your: "To reset your password click the link below:"
+        this_link_will: "This link will expire in two hours."
+        if_you_did_not: "If you did not request your password to be reset,
+        please ignore this email and your password will stay as it is."
+    password_resets:
+      new:
+        title_forgot: "Forgot password"
+        submit: "Submit"
+      create:
+        success_forgot: "Email sent with password reset instructions"
+        error_forgot: "Email address not found"
+      edit:
+        btn_update: "Update password"
+        title_forgot: "Forgot password"
+        confirmation: "Confirmation"
+        error_get_user: "Email address not found"
+      update:
+        not_empty: "can't be empty"
+        success_reset_password: "Password has been reset."
+        password_expired: "Password reset has expired."
+    mailers:
+      user_mailer:
+        password_reset: "Password reset"
+        account_activation: "Account activation"
+    micropost:
+      posted: "Posted"
+      ago: " ago."
+    microposts:
+      create:
+        success_create_micropost: "Micropost created"
+      home:
+        microposts_feed: "Micropost Feed"
+      micropost:
+        delete: "delete"
+        you_sure: "You sure?"
+      destroy:
+        micropost_delete: "Micropost deleted"
+        failed_delete: "Delete micropost failed"
