@@ -27,3 +27,5 @@ micropost:
   link_book_home: "http://www.railstutorial.org/"
 relationship:
   class_name: "User"
+post:
+  posts_per_page: 5

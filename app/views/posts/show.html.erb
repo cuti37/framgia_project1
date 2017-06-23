@@ -1,0 +1,45 @@
+<div class="post">
+        <a href="#"><h1><%= @post.title %></h1></a>
+        <hr>
+        <div class="in-content">
+        <span class="timestamp">
+        <%= t ".posted" %> <%= time_ago_in_words @post.created_at %> <%= t ".ago" %>
+        </span>
+          <p>
+            <%= @post.body %>
+          </p>
+        </div>
+        <div class="foot-post">
+          <div class="units-row">
+          <div class="unit-100">
+          </div>
+          <div class="unit-100">
+          <strong>COMMENTS:</strong>
+        <a href="#"><%= @comments.count %></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% @comments.each do |comment| %>
+  <span class="label label-primary">
+    <%= comment.user.name %>
+  </span>
+    <%= comment.content %>
+  <span class="timestamp">
+    <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
+    <% if logged_in? && current_user.is_current_user?(comment.user) %>
+      <%= link_to t(".delete"), comment, method: :delete,
+        data: { confirm: t(".you_sure") } %>
+    <% end %>
+  </span>
+  <br><br>
+<% end %>
+<% if logged_in? %>
+  <% if current_user.id == @post.user.id or @post.user.following? current_user %>
+    <%= form_for [@post,@post.comments.build] do |f| %>
+      <%= f.text_field :content, class: "form-control" %>
+      <%= f.submit t(".submit"), class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+<% end %>

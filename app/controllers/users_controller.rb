@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :load_user, only: [:show, :following, :followers]
+  before_action :load_post, only: :show
 
   def index
-    @users = User.select(:id, :name, :email).activated.order(:id)
+    @users = User.select(:id, :name, :email).order(:id)
       .paginate page: params[:page], per_page: Settings.user.user_per_page
   end
 
@@ -23,9 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if logged_in?
-      @post = current_user.posts.build
-    end
+    @post = current_user.posts.build
     @posts = @user.posts.paginate page: params[:page],
       per_page: Settings.micropost.micropost_per_page
   end
@@ -58,5 +57,9 @@ class UsersController < ApplicationController
       flash[:warning] = t ".not_found"
       redirect_to root_path
     end
+  end
+
+  def load_post
+    @post = Post.find_by id: [:id]
   end
 end
