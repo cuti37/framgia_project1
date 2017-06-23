@@ -10,10 +10,15 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build post_params
     if @post.save
+      @feed_items = current_user.feed.select(:id, :title, :body, :picture, :user_id,
+        :created_at).sort_by_created_at.paginate page: params[:page],
+        per_page: Settings.post.posts_per_page
       flash[:success] = t ".success_create_micropost"
       redirect_to current_user
     else
-      @feed_items = []
+      @feed_items = current_user.feed.select(:id, :title, :body, :picture, :user_id,
+        :created_at).sort_by_created_at.paginate page: params[:page],
+        per_page: Settings.post.posts_per_page
       render "static_pages/home"
     end
   end

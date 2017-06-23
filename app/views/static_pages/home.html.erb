@@ -7,6 +7,11 @@
         <section class="stats">
          <%= render "shared/stats" %>
         </section>
+        <% if logged_in?%>
+          <section class="micropost_form">
+              <%= render "shared/post_form" %>
+          </section>
+        <% end %>
       </aside>
         <section>
           <h3><%= t ".microposts" %> (<%= @feed_items.size %>)</h3>
