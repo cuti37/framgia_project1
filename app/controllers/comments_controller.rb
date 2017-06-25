@@ -5,16 +5,38 @@ class CommentsController < ApplicationController
   def create
       @comment = @post.comments.create comment_params
       @comment.user_id = current_user.id
-
       if @comment.save
         flash[:success] = t ".success_create_comment"
-        redirect_to @post
+        respond_to do |format|
+          format.html {redirect_to @post}
+          format.js
+        end
       else
         flash[:danger] = "Can't insert blank"
-        redirect_to @post
+        respond_to do |format|
+        format.html {redirect_to @post}
+        format.js
+        end
       end
   end
 
+  def destroy
+    if @comment.destroy
+      respond_to do |format|
+          format.html {redirect_to @post}
+          format.js
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to @post}
+        format.js
+      end
+    end
+  end
+
+  def load_more
+
+  end
   private
 
   def comment_params
@@ -26,7 +48,7 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
-    @comment = @post.comments.find_by params[:id]
+    @comment = @post.comments.find_by id: params[:id]
   end
 
 end

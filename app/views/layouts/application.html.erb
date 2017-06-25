@@ -13,7 +13,9 @@
     <%= render "layouts/header" %>
     <div class="container">
       <% flash.each do |message_type, message| %>
-        <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+      <div id="toast-container" class="toast-top-right" aria-live="polite" role="alert">
+        <%= content_tag :div, content_tag(:div, message,class: "toast-message"), class: "toast toast-#{message_type}", style: "display:block;" %>
+      </div>
       <% end %>
       <%= yield %>
       <%= render "layouts/footer" %>

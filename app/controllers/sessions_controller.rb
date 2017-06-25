@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
 
     if user && user.authenticate(params[:session][:password])
-      flash[:success] = t ".success_login"
+      flash[:info] = t ".success_login"
       log_in user
       if params[:session][:remember_me] == Settings.sessions.create.remember
         remember user

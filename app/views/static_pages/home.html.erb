@@ -14,8 +14,8 @@
         <% end %>
       </aside>
         <section>
-          <h3><%= t ".microposts" %> (<%= @feed_items.size %>)</h3>
-          <ol class="microposts">
+          <h3><%= t ".microposts" %> <div id="count"> (<%= @feed_items.count %>)</div></h3>
+          <ol class="microposts" id="posts">
             <%= render @feed_items %>
           </ol>
           <%= will_paginate @feed_items %>

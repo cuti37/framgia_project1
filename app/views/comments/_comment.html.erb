@@ -1,0 +1,17 @@
+<div class="comments-list">
+  <div class="media <%= comment.id %>">
+    <p class="pull-right"><small><%= time_ago_in_words comment.created_at %></small></p>
+        <%= link_to gravatar_for(comment.user, size: 50), comment.user, class: "media-left" %>
+      <div class="media-body">
+        <h4 class="media-heading user_name"><%= comment.post.user.name %></h4>
+          <%= comment.content %>
+          <% if current_user.is_current_user? comment.user %>
+            <p><small> <%= link_to post_comment_path(comment.post, comment.id),
+            method: :delete, data: {confirm: t(".you_sure")}, remote: true do %>
+            Delete
+            <% end %>
+            </small></p>
+          <% end %>
+      </div>
+  </div>
+</div>

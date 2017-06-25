@@ -1,0 +1,5 @@
+$("#posts").fadeIn(function() {
+  $(this).prepend("<%= j render @post %>").fadeIn(2000);
+});
+$("#posts .post-<%= @post.id - 5 %>").remove();
+$("#count").html("(<%= @feed_items.count %>)");

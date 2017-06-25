@@ -20,24 +20,12 @@
     </div>
   </div>
 </div>
-
-<% @comments.each do |comment| %>
-  <span class="label label-primary">
-    <%= comment.user.name %>
-  </span>
-    <%= comment.content %>
-  <span class="timestamp">
-    <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
-    <% if logged_in? && current_user.is_current_user?(comment.user) %>
-      <%= link_to t(".delete"), comment, method: :delete,
-        data: { confirm: t(".you_sure") } %>
-    <% end %>
-  </span>
-  <br><br>
-<% end %>
+<div id="comments">
+  <%= render @comments %>
+</div>
 <% if logged_in? %>
   <% if current_user.id == @post.user.id or @post.user.following? current_user %>
-    <%= form_for [@post,@post.comments.build] do |f| %>
+    <%= form_for [@post,@post.comments.new], remote: true do |f| %>
       <%= f.text_field :content, class: "form-control" %>
       <%= f.submit t(".submit"), class: "btn btn-success" %>
     <% end %>
