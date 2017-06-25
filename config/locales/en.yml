@@ -154,3 +154,8 @@ en:
       destroy:
         micropost_delete: "Post deleted"
         failed_delete: "Delete micropost failed"
+      show:
+        submit: "Submit"
+    comments:
+      create:
+        success_create_comment: "Comment success"

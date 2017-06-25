@@ -1,0 +1,6 @@
+$('.media.<%= @comment.id %>').fadeOut(function() {
+  $(this).remove();
+});
+$('.unit-100 a').html("<%= @comment.post.comments.count %>")
+$('#comment_content').val("");
+$('#comment_content').focus();

@@ -5,14 +5,16 @@
     <%= link_to post.user.name, post.user %>
   </span>
   <span class="content">
-    <%= post.title %>
+    <%= link_to post.title, post %>
     <%= image_tag post.picture.url if post.picture? %>
   </span>
   <span class="timestamp">
     <%= t ".posted" %> <%= time_ago_in_words(post.created_at) %> <%= t ".ago" %>
     <% if logged_in? && current_user.is_current_user?(post.user) %>
-      <%= link_to t(".delete"), post, method: :delete,
-        data: { confirm: t(".you_sure") } %>
+      <%= link_to post, method: :delete,
+        data: { confirm: t(".you_sure") }, remote: true do %>
+        <span>Delete</span>
+        <% end %>
     <% end %>
   </span>
 </li>

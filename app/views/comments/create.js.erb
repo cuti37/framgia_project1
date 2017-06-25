@@ -1,0 +1,5 @@
+$('#comments').append("<%= j render @comment %>");
+$('#comment_content').val("");
+$('#comment_content').focus();
+$('.unit-100 a').html("<%= @comment.post.comments.count %>")
+toastr.success('Delete success');
